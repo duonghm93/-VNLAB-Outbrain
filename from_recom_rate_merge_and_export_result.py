@@ -152,20 +152,20 @@ def merge_result_file(result_folder, output_file):
 
 
 if __name__ == '__main__':
-    # start_time = time.time()
-    # job_queue = Queue()
-    # init_queue(job_queue)
-    #
-    # number_of_process = 4
-    # procs = []
-    # for i in range(number_of_process):
-    #     proc = Process(target=sort_each_file_with_queue, args=(job_queue, ))
-    #     proc.start()
-    #     procs.append(proc)
-    #
-    # for p in procs:
-    #     p.join()
-    # print('Group result Success: ', (time.time() - start_time))
+    start_time = time.time()
+    job_queue = Queue()
+    init_queue(job_queue)
+
+    number_of_process = 4
+    procs = []
+    for i in range(number_of_process):
+        proc = Process(target=sort_each_file_with_queue, args=(job_queue, ))
+        proc.start()
+        procs.append(proc)
+
+    for p in procs:
+        p.join()
+    print('Group result Success: ', (time.time() - start_time))
 
     print('Start merging result ...')
     start_time = time.time()

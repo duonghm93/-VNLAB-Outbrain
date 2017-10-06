@@ -1,0 +1,1 @@
+from feature.document_feature.document_feature import DocumentFeatureGenerator
