@@ -1,4 +1,4 @@
-DATA_FOLDER = 'D:/outbrain/'
+DATA_FOLDER = 'E:/outbrain/'
 
 TRAIN_FOLDER = 'clicks_train.csv/'
 TRAIN_FILE = 'clicks_train.csv'
