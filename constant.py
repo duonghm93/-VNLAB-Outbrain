@@ -36,6 +36,15 @@ PROMOTED_CONTENT_FOLDER = 'promoted_content.csv/'
 PROMOTED_CONTENT_FILE = 'promoted_content.csv'
 PROMOTED_CONTENT_SAMPLE_FILE = 'promoted_content_sample.csv'
 
+DISPLAY_ID_COLUMN_NAME = 'display_id'
+AD_ID_COLUMN_NAME = 'ad_id'
+CLICKED_COLUMN_NAME = 'clicked'
+
+DEFAULT_FEATURE_COLUMN_NAME = 'feature'
+DEFAULT_LABEL_COLUMN_NAME = 'clicked'
+
+CHUNK_SIZE = 10**4
+
 
 def get_train_file():
     return DATA_FOLDER + TRAIN_FOLDER + TRAIN_FILE
