@@ -26,8 +26,8 @@ class FeatureGenerator:
             user_feature = self.user_feature_generator.get_feature(uuid)
             ad_feature = self.ad_feature_generator.get_feature(ad_id)
             feature = feature_flatten([document_feature, ad_feature])
-            print('- Create feature for {0}, {1} done, {2}'.format(display_id, ad_id, (time.time()-start_time)))
+            # print('- Create feature for {0}, {1} done, {2}'.format(display_id, ad_id, (time.time()-start_time)))
             return feature
         else:
-            print('- Not found feature for {0}, {1} done, {2}'.format(display_id, ad_id, (time.time()-start_time)))
+            # print('- Not found feature for {0}, {1} done, {2}'.format(display_id, ad_id, (time.time()-start_time)))
             return None

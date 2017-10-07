@@ -1,16 +1,19 @@
 DATA_FOLDER = 'E:/outbrain/'
 
 TRAIN_FOLDER = 'clicks_train.csv/'
+TRAIN_SAMPLE_FOLDER = 'clicks_train.csv/sample/'
+TRAIN_SAMPLE_FEATURE_FOLDER = 'clicks_train.csv/sample_feature/'
+TRAIN_FEATURE_FOLDER = 'clicks_train.csv/feature/'
 TRAIN_FILE = 'clicks_train.csv'
-TRAIN_FILE_SAMPLE = 'clicks_train_sample.csv'
+TRAIN_SAMPLE_FILE = 'clicks_train_sample.csv'
 
 TEST_FOLDER = 'clicks_test.csv/'
 TEST_FILE = 'clicks_test.csv'
-TEST_FILE_SAMPLE = 'clicks_test_sample.csv'
+TEST_SAMPLE_FILE = 'clicks_test_sample.csv'
 
 EVENTS_FOLDER = 'events.csv/'
 EVENTS_FILE = 'events.csv'
-EVENTS_FILE_SAMPLE = 'events_sample.csv'
+EVENTS_SAMPLE_FILE = 'events_sample.csv'
 
 PAGE_VIEWS_FOLDER = 'page_views_sample.csv/'
 PAGE_VIEWS_FILE = 'page_views_sample.csv'
@@ -43,7 +46,12 @@ CLICKED_COLUMN_NAME = 'clicked'
 DEFAULT_FEATURE_COLUMN_NAME = 'feature'
 DEFAULT_LABEL_COLUMN_NAME = 'clicked'
 
+MODEL_DATA_FOLDER = 'model_data/'
+LINEAR_REGRESSION_MODEL_FILE = 'linear_regression.model'
+
 CHUNK_SIZE = 10**4
+
+NUMBER_OF_PROCESSES = 4
 
 
 def get_train_file():
@@ -51,7 +59,15 @@ def get_train_file():
 
 
 def get_train_sample_file():
-    return DATA_FOLDER + TRAIN_FOLDER + TRAIN_FILE_SAMPLE
+    return DATA_FOLDER + TRAIN_FOLDER + TRAIN_SAMPLE_FILE
+
+
+def get_train_sample_folder():
+    return DATA_FOLDER + TRAIN_SAMPLE_FOLDER
+
+
+def get_train_sample_Feature_folder():
+    return DATA_FOLDER + TRAIN_SAMPLE_FEATURE_FOLDER
 
 
 def get_test_file():
@@ -59,7 +75,7 @@ def get_test_file():
 
 
 def get_test_sample_file():
-    return DATA_FOLDER + TEST_FOLDER + TEST_FILE_SAMPLE
+    return DATA_FOLDER + TEST_FOLDER + TEST_SAMPLE_FILE
 
 
 def get_events_file():
@@ -67,7 +83,7 @@ def get_events_file():
 
 
 def get_events_sample_file():
-    return DATA_FOLDER + EVENTS_FOLDER + EVENTS_FILE_SAMPLE
+    return DATA_FOLDER + EVENTS_FOLDER + EVENTS_SAMPLE_FILE
 
 
 def get_train_folder():
@@ -124,3 +140,7 @@ def get_promoted_content_file():
 
 def get_promoted_content_sample_file():
     return DATA_FOLDER + PROMOTED_CONTENT_FOLDER + PROMOTED_CONTENT_SAMPLE_FILE
+
+
+def get_linear_regression_model_file():
+    return DATA_FOLDER + MODEL_DATA_FOLDER + LINEAR_REGRESSION_MODEL_FILE
