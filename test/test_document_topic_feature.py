@@ -14,7 +14,6 @@ class DocumentTopicFeatureTestCase(unittest.TestCase):
         print(feature)
         self.assertEqual(len(feature), len(self.dtf.vectorizer.classes_))
 
-
     def test_document_topic_feature_non_exist_document_id(self):
         document_id = 0
         feature = self.dtf.get_feature(document_id)

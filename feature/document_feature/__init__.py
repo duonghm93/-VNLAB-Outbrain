@@ -1,1 +1,3 @@
 from feature.document_feature.document_feature import DocumentFeatureGenerator
+from feature.document_feature.document_topic_feature import DocumentTopicFeatureGenerator
+from feature.document_feature.document_category_feature import DocumentCategoryFeatureGenerator

@@ -42,12 +42,21 @@ PROMOTED_CONTENT_SAMPLE_FILE = 'promoted_content_sample.csv'
 DISPLAY_ID_COLUMN_NAME = 'display_id'
 AD_ID_COLUMN_NAME = 'ad_id'
 CLICKED_COLUMN_NAME = 'clicked'
+DOCUMENT_ID_COLUMN_NAME = 'document_id'
+CONFIDENCE_LEVEL_COLUMN_NAME = 'confidence_level'
+CATEGORY_ID_COLUMN_NAME = 'category_id'
+USER_ID_COLUMN_NAME = 'uuid'
+
+
+TOPIC_ID_COLUMN_NAME = 'topic_id'
 
 DEFAULT_FEATURE_COLUMN_NAME = 'feature'
 DEFAULT_LABEL_COLUMN_NAME = 'clicked'
 
 MODEL_DATA_FOLDER = 'model_data/'
 LINEAR_REGRESSION_MODEL_FILE = 'linear_regression.model'
+LINEAR_SVR_MODEL_FILE = 'linear_svr.model'
+POLY_SVR_MODEL_FILE = 'poly_svr.model'
 
 CHUNK_SIZE = 10**4
 
@@ -144,3 +153,11 @@ def get_promoted_content_sample_file():
 
 def get_linear_regression_model_file():
     return DATA_FOLDER + MODEL_DATA_FOLDER + LINEAR_REGRESSION_MODEL_FILE
+
+
+def get_linear_svr_model_file():
+    return DATA_FOLDER + MODEL_DATA_FOLDER + LINEAR_SVR_MODEL_FILE
+
+
+def get_poly_svr_model_file():
+    return DATA_FOLDER + MODEL_DATA_FOLDER + POLY_SVR_MODEL_FILE
