@@ -2,7 +2,7 @@ import constant
 import pandas as pd
 
 
-class DocumentMining:
+class DocumentStatisticalFeatureGenerator:
     def __init__(self, df_merge_train, df_pageviews):
         self.df_pageviews = df_pageviews
         self.df_merge_train = df_merge_train
@@ -16,7 +16,7 @@ class DocumentMining:
 
     def get_total_pageviews(self):
         if self.total_pageviews is None:
-            self.total_pageviews = df_page_view.shape[0]
+            self.total_pageviews = self.df_page_view.shape[0]
         return self.total_pageviews
 
     # Support
@@ -54,6 +54,6 @@ class DocumentMining:
 if __name__ == '__main__':
     df_merge_train = pd.read_csv('D:/outbrain/sample_data.csv', header=0)
     df_page_view = pd.read_csv(constant.get_page_view_sample_file(), header=0)
-    docMining = DocumentMining(df_merge_train, df_page_view)
+    docMining = DocumentStatisticalFeatureGenerator(df_merge_train, df_page_view)
     doc_id = 778157
     print(docMining.get_doc_id_feature(doc_id))
