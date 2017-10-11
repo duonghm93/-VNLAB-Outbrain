@@ -1,4 +1,4 @@
-DATA_FOLDER = 'E:/outbrain/'
+DATA_FOLDER = 'D:/outbrain/'
 
 TRAIN_FOLDER = 'clicks_train.csv/'
 TRAIN_SAMPLE_FOLDER = 'clicks_train.csv/sample/'
@@ -47,6 +47,7 @@ CONFIDENCE_LEVEL_COLUMN_NAME = 'confidence_level'
 CATEGORY_ID_COLUMN_NAME = 'category_id'
 USER_ID_COLUMN_NAME = 'uuid'
 
+SAMPLE_DATA_FILE = 'sample_data.csv'
 
 TOPIC_ID_COLUMN_NAME = 'topic_id'
 
@@ -161,3 +162,6 @@ def get_linear_svr_model_file():
 
 def get_poly_svr_model_file():
     return DATA_FOLDER + MODEL_DATA_FOLDER + POLY_SVR_MODEL_FILE
+
+def get_sample_file():
+    return DATA_FOLDER + SAMPLE_DATA_FILE

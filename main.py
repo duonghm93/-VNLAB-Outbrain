@@ -58,21 +58,21 @@ if __name__ == '__main__':
     start_program_time = time.time()
 
     # === Create feature from separated train data ===
-    # document_topic_generator = DocumentTopicFeatureGenerator(df_document_topic)
-    # document_category_generator = DocumentCategoryFeatureGenerator(df_document_categories)
-    # document_feature_generators = [document_topic_generator]
-    # feature_generator = FeatureGenerator(df_events, document_feature_generators)
-    #
-    # queue_job = multiprocess_util.create_queue_job(constant.get_train_sample_folder(), prefix='train')
-    #
-    # processes = []
-    # for i in range(constant.NUMBER_OF_PROCESSES):
-    #    process = Process(target=process_generate_train_data, args=(queue_job, feature_generator, ))
-    #    process.start()
-    #    processes.append(process)
-    #
-    # for process in processes:
-    #    process.join()
+    document_topic_generator = DocumentTopicFeatureGenerator(df_document_topic)
+    document_category_generator = DocumentCategoryFeatureGenerator(df_document_categories)
+    document_feature_generators = [document_topic_generator]
+    feature_generator = FeatureGenerator(df_events, document_feature_generators)
+
+    queue_job = multiprocess_util.create_queue_job(constant.get_train_sample_folder(), prefix='train')
+
+    processes = []
+    for i in range(constant.NUMBER_OF_PROCESSES):
+       process = Process(target=process_generate_train_data, args=(queue_job, feature_generator, ))
+       process.start()
+       processes.append(process)
+
+    for process in processes:
+       process.join()
 
     # === Train Linear Regression Model ===
     X = []
