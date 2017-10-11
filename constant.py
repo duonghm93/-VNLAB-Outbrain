@@ -169,5 +169,6 @@ def get_linear_svr_model_file():
 def get_poly_svr_model_file():
     return DATA_FOLDER + MODEL_DATA_FOLDER + POLY_SVR_MODEL_FILE
 
+
 def get_sample_file():
     return DATA_FOLDER + SAMPLE_DATA_FILE

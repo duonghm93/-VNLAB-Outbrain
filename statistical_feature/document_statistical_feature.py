@@ -1,6 +1,7 @@
 import constant
 import pandas as pd
 
+
 class StatisticalFeatureGenerator:
     def __init__(self, df_merge_train, df_page_views):
         self.df_page_views = df_page_views
@@ -49,11 +50,11 @@ class StatisticalFeatureGenerator:
 
     def get_doc_source_id_feature(self, source_id):
         # TODO when page_view data merge with document_meta_data, it is able turn check_in_page_view on
-        return self.__get__feature(source_id, constant.DOCUMENT_SOURCE_ID_COLUMN_NAME)
+        return self.__get__feature(source_id, constant.DOCUMENT_SOURCE_ID_COLUMN_NAME, check_in_page_view=True)
 
     def get_doc_publisher_id_feature(self, publisher_id):
         # TODO when page_view data merge with document_meta_data, it is able turn check_in_page_view on
-        return self.__get__feature(publisher_id, constant.DOCUMENT_PUBLISHER_ID_COLUMN_NAME)
+        return self.__get__feature(publisher_id, constant.DOCUMENT_PUBLISHER_ID_COLUMN_NAME, check_in_page_view=True)
 
     def get_user_id_feature(self, user_id):
         return self.__get__feature(user_id, constant.USER_ID_COLUMN_NAME, check_in_page_view=True)
@@ -85,7 +86,7 @@ class StatisticalFeatureGenerator:
 
 if __name__ == '__main__':
     df_merge_train = pd.read_csv('D:/outbrain/sample_data.csv', header=0)
-    df_page_view = pd.read_csv(constant.get_page_view_sample_file(), header=0)
+    df_page_view = pd.read_csv('D:/outbrain/page_view_sample_merge_data.csv', header=0)
     docMining = StatisticalFeatureGenerator(df_merge_train, df_page_view)
     doc_id = 778157
     user_id = '79a85fa78311b9'
