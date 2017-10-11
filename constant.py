@@ -41,6 +41,8 @@ PROMOTED_CONTENT_SAMPLE_FILE = 'promoted_content_sample.csv'
 
 DISPLAY_ID_COLUMN_NAME = 'display_id'
 AD_ID_COLUMN_NAME = 'ad_id'
+AD_CAMPAIGN_ID_COLUMN_NAME = 'campaign_id'
+AD_ADVERTISER_ID_COLUMN_NAME = 'advertiser_id'
 CLICKED_COLUMN_NAME = 'clicked'
 DOCUMENT_ID_COLUMN_NAME = 'document_id'
 DOCUMENT_SOURCE_ID_COLUMN_NAME = 'source_id'
