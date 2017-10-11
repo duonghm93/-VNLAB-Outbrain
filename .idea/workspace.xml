@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a94b8a57-2372-44c7-8736-27c2651371ad" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/statistical_feature/ad/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/statistical_feature/document/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/statistical_feature/user/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/statistical_feature/user/user_statistical_feature.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/constant.py" afterPath="$PROJECT_DIR$/constant.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/statistical_feature/document/document_statistical_feature.py" afterPath="$PROJECT_DIR$/statistical_feature/document_statistical_feature.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statistical_feature/document_statistical_feature.py" afterPath="$PROJECT_DIR$/statistical_feature/document_statistical_feature.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +23,7 @@
     <SUITE FILE_PATH="coverage/VNLAB_Outbrain$document_topic_feature.coverage" NAME="document_topic_feature Coverage Results" MODIFIED="1507297548053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feature/document_feature" />
     <SUITE FILE_PATH="coverage/VNLAB_Outbrain$Nosetests_for_test_document_feature_DocumentFeatureTestCase_test_document_topic_feature_exist_document_id.coverage" NAME="Nosetests for test_document_feature.DocumentFeatureTestCase.test_document_topic_feature_exist_document_id Coverage Results" MODIFIED="1507297560683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/VNLAB_Outbrain$Nosetests_in_VNLAB_Outbrain.coverage" NAME="Nosetests in VNLAB-Outbrain Coverage Results" MODIFIED="1507365380852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/VNLAB_Outbrain$document_statistical_feature.coverage" NAME="document_statistical_feature Coverage Results" MODIFIED="1507719526290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/statistical_feature" />
+    <SUITE FILE_PATH="coverage/VNLAB_Outbrain$document_statistical_feature.coverage" NAME="document_statistical_feature Coverage Results" MODIFIED="1507720915502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/statistical_feature" />
     <SUITE FILE_PATH="coverage/VNLAB_Outbrain$main.coverage" NAME="main Coverage Results" MODIFIED="1507609663634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VNLAB_Outbrain$Nosetests_for_test_document_topic_feature_DocumentTopicFeatureTestCase.coverage" NAME="Nosetests for test_document_topic_feature.DocumentTopicFeatureTestCase Coverage Results" MODIFIED="1507391703155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/VNLAB_Outbrain$Nosetests_for_test_document_feature_DocumentFeatureTestCase_test_document_topic_feature_non_exist_document_id.coverage" NAME="Nosetests for test_document_feature.DocumentFeatureTestCase.test_document_topic_feature_non_exist_document_id Coverage Results" MODIFIED="1507297580327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
@@ -56,10 +50,10 @@
       <file leaf-file-name="document_statistical_feature.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statistical_feature/document_statistical_feature.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-912">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="-198">
+              <caret line="54" column="103" lean-forward="false" selection-start-line="54" selection-start-column="103" selection-end-line="54" selection-end-column="103" />
               <folding>
-                <element signature="e#62#77#0" expanded="true" />
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -897,10 +891,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/statistical_feature/document_statistical_feature.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-912">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="-198">
+          <caret line="54" column="103" lean-forward="false" selection-start-line="54" selection-start-column="103" selection-end-line="54" selection-end-column="103" />
           <folding>
-            <element signature="e#62#77#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,7 +1,5 @@
-# df_merge_train and df_page_views must merge to related data
 import constant
 import pandas as pd
-
 
 class StatisticalFeatureGenerator:
     def __init__(self, df_merge_train, df_page_views):
@@ -27,32 +25,38 @@ class StatisticalFeatureGenerator:
     def __get__appear__number(self, __id, __field__name):
         return self.df_page_views[self.df_page_views[__field__name] == __id].shape[0]
 
-    def __get__feature(self, __id, __field__name):
+    def __get__feature(self, __id, __field__name, check_in_page_view = False):
+        feature = []
         number_of_click = self.__get__click__number(__id, __field__name)
-        number_of_appear = self.__get__appear__number(__id, __field__name)
-        print(number_of_click, number_of_appear)
         click_rate_over_all_click = number_of_click / self.get_total_click()
-        click_rate = 0
-        if number_of_appear is not 0:
-            click_rate = number_of_click / number_of_appear
-        elif number_of_click is not 0:
-            click_rate = click_rate_over_all_click * constant.DEFAULT_CLICK_RATE_OVER_APPEAR_RATE
-        else:
+        feature.append(click_rate_over_all_click)
+
+        if check_in_page_view:
+            number_of_appear = self.__get__appear__number(__id, __field__name)
             click_rate = 0
-        appear_rate = number_of_appear / self.get_total_pageviews()
-        return [click_rate_over_all_click, click_rate, appear_rate]
+            if number_of_appear is not 0:
+                click_rate = number_of_click / number_of_appear
+            elif number_of_click is not 0:
+                click_rate = click_rate_over_all_click * constant.DEFAULT_CLICK_RATE_OVER_APPEAR_RATE
+            feature.append(click_rate)
+            appear_rate = number_of_appear / self.get_total_pageviews()
+            feature.append(appear_rate)
+
+        return feature
 
     def get_doc_id_feature(self, doc_id):
-        return self.__get__feature(doc_id, constant.DOCUMENT_ID_COLUMN_NAME)
+        return self.__get__feature(doc_id, constant.DOCUMENT_ID_COLUMN_NAME, check_in_page_view=True)
 
     def get_doc_source_id_feature(self, source_id):
+        # TODO when page_view data merge with document_meta_data, it is able turn check_in_page_view on
         return self.__get__feature(source_id, constant.DOCUMENT_SOURCE_ID_COLUMN_NAME)
 
     def get_doc_publisher_id_feature(self, publisher_id):
+        # TODO when page_view data merge with document_meta_data, it is able turn check_in_page_view on
         return self.__get__feature(publisher_id, constant.DOCUMENT_PUBLISHER_ID_COLUMN_NAME)
 
     def get_user_id_feature(self, user_id):
-        return self.__get__feature(user_id, constant.USER_ID_COLUMN_NAME)
+        return self.__get__feature(user_id, constant.USER_ID_COLUMN_NAME, check_in_page_view=True)
 
     def get_ad_id_feature(self, ad_id):
         return self.__get__feature(ad_id, constant.AD_ID_COLUMN_NAME)
@@ -84,4 +88,9 @@ if __name__ == '__main__':
     df_page_view = pd.read_csv(constant.get_page_view_sample_file(), header=0)
     docMining = StatisticalFeatureGenerator(df_merge_train, df_page_view)
     doc_id = 778157
+    user_id = '79a85fa78311b9'
+    ad_id = 125211
+
     print(docMining.get_doc_feature_from_doc_id(doc_id))
+    print(docMining.get_user_id_feature(user_id))
+    print(docMining.get_ad_feature_from_ad_id(ad_id))
