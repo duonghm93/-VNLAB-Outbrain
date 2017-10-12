@@ -96,7 +96,7 @@ if __name__ == '__main__':
     X = df.drop(['clicked'], axis=1)
     Y = df['clicked']
 
-    lr = LogisticRegression()
+    lr = LogisticRegression(max_iter=100, n_jobs=4, solver='saga')
     result = cross_val_score(lr, X, Y, cv=7)
     print(result)
     #print(result.mean())

@@ -39,6 +39,16 @@ PROMOTED_CONTENT_FOLDER = 'promoted_content.csv/'
 PROMOTED_CONTENT_FILE = 'promoted_content.csv'
 PROMOTED_CONTENT_SAMPLE_FILE = 'promoted_content_sample.csv'
 
+STATISTIC_FEATURE_FOLDER = 'statisticFeature/'
+AD_STATISTIC_FEATURE_FILE = 'ad.csv'
+DOCUMENT_STATISTIC_FEATURE_FILE = 'document.csv'
+USER_STATISTIC_FEATURE_FILE = 'user.csv'
+
+ENCODING_FEATURE_FOLDER = 'encodingFeature/'
+DOCUMENT_CATEGORY_ENCODING_FEATURE_FILE = 'doc_category.csv'
+DOCUMENT_TOPIC_ENCODING_FEATURE_FILE = 'doc_topic.csv'
+
+
 DISPLAY_ID_COLUMN_NAME = 'display_id'
 AD_ID_COLUMN_NAME = 'ad_id'
 AD_CAMPAIGN_ID_COLUMN_NAME = 'campaign_id'
@@ -172,3 +182,23 @@ def get_poly_svr_model_file():
 
 def get_sample_file():
     return DATA_FOLDER + SAMPLE_DATA_FILE
+
+
+def get_user_statistic_feature_file():
+    return DATA_FOLDER + STATISTIC_FEATURE_FOLDER + USER_STATISTIC_FEATURE_FILE
+
+
+def get_document_statistic_feature_file():
+    return DATA_FOLDER + STATISTIC_FEATURE_FOLDER + DOCUMENT_STATISTIC_FEATURE_FILE
+
+
+def get_ad_statistic_feature_file():
+    return DATA_FOLDER + STATISTIC_FEATURE_FOLDER + AD_STATISTIC_FEATURE_FILE
+
+
+def get_document_category_encoding_feature_file():
+    return DATA_FOLDER + ENCODING_FEATURE_FOLDER + DOCUMENT_CATEGORY_ENCODING_FEATURE_FILE
+
+
+def get_document_topic_encoding_feature_file():
+    return DATA_FOLDER + ENCODING_FEATURE_FOLDER + DOCUMENT_TOPIC_ENCODING_FEATURE_FILE
