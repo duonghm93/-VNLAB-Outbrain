@@ -12,6 +12,8 @@ if __name__ == '__main__':
     statistic_doc_feature_file = constant.get_document_statistic_feature_file()
     statistic_user_feature_file = constant.get_user_statistic_feature_file()
     statistic_ad_feature_file = constant.get_ad_statistic_feature_file()
+    encoding_document_topic_file = constant.get_document_topic_encoding_feature_file()
+    encoding_document_category_file = constant.get_document_category_encoding_feature_file()
 
     print('Load sample data file')
     df = pd.read_csv(sample_data_file, header=0)
@@ -27,15 +29,21 @@ if __name__ == '__main__':
     # df_user_feature = pd.read_csv(statistic_user_feature_file, header=None, converters={0:ast.literal_eval})
     print('Load statistic ad feature ...')
     df_ad_feature = pd.read_csv(statistic_ad_feature_file, header=None, converters={0: ast.literal_eval})
+    print('Load document topic feature ...')
+    df_document_topic = pd.read_csv(encoding_document_topic_file, header=None, converters={0: ast.literal_eval})
+    print('Load document category feature ...')
+    df_document_category = pd.read_csv(encoding_document_category_file, header=None, converters={0: ast.literal_eval})
 
     print('Convert list to separated columns ...')
     df_doc_feature = pd.DataFrame(df_doc_feature[0].values.tolist())
     # df_user_feature = pd.DataFrame(df_user_feature[0].values.tolist())
     df_ad_feature = pd.DataFrame(df_ad_feature[0].values.tolist())
+    df_document_topic = pd.DataFrame(df_document_topic[0].values.tolist())
+    df_document_category = pd.DataFrame(df_document_category[0].values.tolist())
 
     print('Merge to create trainable data ...')
     # df = pd.concat([df, df_doc_feature, df_user_feature, df_ad_feature], axis=1)
-    df = pd.concat([df, df_doc_feature, df_ad_feature], axis=1)
+    df = pd.concat([df, df_doc_feature, df_ad_feature, df_document_topic, df_document_category], axis=1)
 
     X = df.drop(['clicked'], axis=1)
     Y = df['clicked']
@@ -46,7 +54,7 @@ if __name__ == '__main__':
 
     print('Create model ...')
     # lr = SVC()
-    lr = SVR()
+    lr = LinearRegression()
     lr.fit(X_train, Y_train)
     print('Start predicting ...')
     predict = lr.predict(X_test)
