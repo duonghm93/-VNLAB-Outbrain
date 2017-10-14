@@ -1,7 +1,8 @@
 import pandas as pd
 from model_generator import ModelGenerator
 from custom_verify import CustomVerifier
-from sklearn.linear_model import SGDRegressor
+import sklearn
+from sklearn.linear_model import SGDRegressor, SGDClassifier
 from sklearn.neural_network import MLPRegressor
 import constant
 import time
@@ -9,32 +10,40 @@ import time
 if __name__ == '__main__':
     start_program_time = time.time()
     train_file_name = constant.get_train_merge_file()
-    sgd_model = SGDRegressor()
+    model = SGDRegressor(alpha=0.0001, epsilon=0.1, eta0=0.01, fit_intercept=True, penalty='l2')
+    # model = SGDClassifier(loss='log')
     model_generator = ModelGenerator(
-        model=sgd_model, df_features=[],
-        ignore_fields_names=[constant.DOCUMENT_GEO_LOCATION_COLUMN_NAME, constant.USER_ID_COLUMN_NAME],
+        model=model, df_features=[],
+        # ignore_fields_names=[
+        #     constant.DOCUMENT_GEO_LOCATION_COLUMN_NAME, constant.USER_ID_COLUMN_NAME,
+        # ],
         label_field_name=constant.CLICKED_COLUMN_NAME
     )
     print('Loading training data and Training ...')
     start_time = time.time()
-    for df in pd.read_csv(train_file_name, header=0, chunksize=100000):
+    for df in pd.read_csv(train_file_name, header=0, chunksize=10000):
+        df = df.drop([constant.DOCUMENT_GEO_LOCATION_COLUMN_NAME, constant.USER_ID_COLUMN_NAME], axis=1)
+        df = pd.DataFrame(sklearn.preprocessing.scale(df), columns=df.columns)
         print('- Training ...')
         model_generator.set_train_data(df)
         model_generator.partial_train()
     print('Finish training:', time.time()-start_time)
 
     model = model_generator.get_model()
+    print(model.coef_, model.intercept_[0])
     print('Exporting model ...')
     model_generator.export_model(constant.get_sgd_model_file())
 
     print('Loading testing data ...')
-    df_test = pd.read_csv(constant.get_sample_file(), header=0, nrows=100000)
+    df_test = pd.read_csv(constant.get_sample_file(), header=0)
     X_test = df_test.drop([constant.DOCUMENT_GEO_LOCATION_COLUMN_NAME, constant.USER_ID_COLUMN_NAME, constant.CLICKED_COLUMN_NAME], axis=1)
     Y_test = df_test[constant.CLICKED_COLUMN_NAME]
 
     print('Predicting ...')
     start_time = time.time()
     predict = model.predict(X_test)
+    # predict = model.predict_proba(X_test)
+    # predict = list(map(lambda x: x[1], predict))
     print('Finish predict:',time.time()-start_time)
 
     print('Verifying ...')

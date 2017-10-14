@@ -78,6 +78,9 @@ MODEL_FOLDER = 'model/'
 SGD_MODEL_FILE = 'sgd.model'
 MPL_MODEL_FILE = 'mpl.model'
 
+PREDICT_RESULT_OUTPUT_FOLDER = 'test_predict_result/'
+PREDICT_RESULT_FILE_PREFIX = 'test'
+
 DEFAULT_CLICK_RATE_OVER_APPEAR_RATE = 0.1
 
 CHUNK_SIZE = 10**4
@@ -215,9 +218,17 @@ def get_train_merge_file():
     return DATA_FOLDER + 'merge_data.csv'
 
 
+def get_test_merge_file():
+    return DATA_FOLDER + 'merge_test_data.csv'
+
+
 def get_sgd_model_file():
     return DATA_FOLDER + MODEL_FOLDER + SGD_MODEL_FILE
 
 
 def get_mpl_model_file():
     return DATA_FOLDER + MODEL_FOLDER + MPL_MODEL_FILE
+
+
+def get_predict_result_folder():
+    return DATA_FOLDER + PREDICT_RESULT_OUTPUT_FOLDER
