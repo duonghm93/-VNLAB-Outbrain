@@ -1,4 +1,4 @@
-DATA_FOLDER = 'D:/outbrain/'
+DATA_FOLDER = 'E:/outbrain/'
 
 TRAIN_FOLDER = 'clicks_train.csv/'
 TRAIN_SAMPLE_FOLDER = 'clicks_train.csv/sample/'
@@ -54,6 +54,7 @@ AD_ID_COLUMN_NAME = 'ad_id'
 AD_CAMPAIGN_ID_COLUMN_NAME = 'campaign_id'
 AD_ADVERTISER_ID_COLUMN_NAME = 'advertiser_id'
 CLICKED_COLUMN_NAME = 'clicked'
+DOCUMENT_GEO_LOCATION_COLUMN_NAME = 'geo_location'
 DOCUMENT_ID_COLUMN_NAME = 'document_id'
 DOCUMENT_SOURCE_ID_COLUMN_NAME = 'source_id'
 DOCUMENT_PUBLISHER_ID_COLUMN_NAME = 'publisher_id'
