@@ -1,4 +1,4 @@
-DATA_FOLDER = 'E:/outbrain/'
+DATA_FOLDER = 'D:/outbrain/'
 
 TRAIN_FOLDER = 'clicks_train.csv/'
 TRAIN_SAMPLE_FOLDER = 'clicks_train.csv/sample/'
@@ -73,6 +73,10 @@ MODEL_DATA_FOLDER = 'model_data/'
 LINEAR_REGRESSION_MODEL_FILE = 'linear_regression.model'
 LINEAR_SVR_MODEL_FILE = 'linear_svr.model'
 POLY_SVR_MODEL_FILE = 'poly_svr.model'
+
+MODEL_FOLDER = 'model/'
+SGD_MODEL_FILE = 'sgd.model'
+MPL_MODEL_FILE = 'mpl.model'
 
 DEFAULT_CLICK_RATE_OVER_APPEAR_RATE = 0.1
 
@@ -205,3 +209,15 @@ def get_document_category_encoding_feature_file():
 
 def get_document_topic_encoding_feature_file():
     return DATA_FOLDER + ENCODING_FEATURE_FOLDER + DOCUMENT_TOPIC_ENCODING_FEATURE_FILE
+
+
+def get_train_merge_file():
+    return DATA_FOLDER + 'merge_data.csv'
+
+
+def get_sgd_model_file():
+    return DATA_FOLDER + MODEL_FOLDER + SGD_MODEL_FILE
+
+
+def get_mpl_model_file():
+    return DATA_FOLDER + MODEL_FOLDER + MPL_MODEL_FILE

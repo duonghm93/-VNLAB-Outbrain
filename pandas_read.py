@@ -48,4 +48,4 @@ if __name__ == '__main__':
     for test_df in pd.read_csv(sample_test_file, chunksize=chunk_size):
         minimize_df = test_df.groupby('display_id').agg(lambda x: set(x)).reset_index()
         test_data = pd.concat([test_data, minimize_df])
-    #test_data['ad_score'] = test_data.apply(lambda row: get_rate_by_ad_id(all_data_group, row['ad_id']), axis=1)
+    #df_test['ad_score'] = df_test.apply(lambda row: get_rate_by_ad_id(all_data_group, row['ad_id']), axis=1)

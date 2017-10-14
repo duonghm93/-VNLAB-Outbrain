@@ -4,7 +4,7 @@ import unittest
 
 class DocumentFeatureTestcase(unittest.TestCase):
     def setUp(self):
-        self.df = pd.read_csv('../test_data/documents_topic_sample.csv')
+        self.df = pd.read_csv('../df_test/documents_topic_sample.csv')
         self.dfg = DocumentFeatureGenerator(self.df)
 
 

@@ -47,7 +47,7 @@ class ModelGenerator:
         label_data = self.__df__train__data__[self.__get__label__field__name__()]
         self.__model__.partial_fit(train_data, label_data)
 
-    def export_merge(self, model_file_path):
+    def export_model(self, model_file_path):
         os = open(model_file_path, 'wb')
         pickle.dump(self.get_model(), os)
         os.close()
