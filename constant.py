@@ -222,6 +222,10 @@ def get_test_merge_file():
     return DATA_FOLDER + 'merge_test_data.csv'
 
 
+def get_pageviews_mege_file():
+    return DATA_FOLDER + 'page_view_merge_data.csv'
+
+
 def get_sgd_model_file():
     return DATA_FOLDER + MODEL_FOLDER + SGD_MODEL_FILE
 

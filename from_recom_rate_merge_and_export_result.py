@@ -6,7 +6,7 @@ from multiprocessing import Process, Queue, Manager
 input_folder = 'D:/outbrain/test_predict_result/'
 output_folder = 'D:/outbrain/output_sort/'
 inaccuracy_ranking_file = 'D:/outbrain/inaccurate.csv'
-final_output_file = 'D:/outbrain/submit_sgd.csv'
+final_output_file = 'D:/outbrain/submit_lir.csv'
 TEST_FILE_PREFIX = 'test'
 LINE_PER_FILE = 100000
 RESULT_FILE_COLUMNS_NAME = ['display_id', 'ad_id', 'recommend_rate']
