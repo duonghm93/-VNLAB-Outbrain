@@ -112,7 +112,7 @@ class StatisticalFeatureLargeFileGenerator:
             else:
                 continue
         # Data error
-        return None
+        return [0]*9
 
     def get_user_feature_from_user_id(self, user_id):
         return self.get_user_id_feature(user_id)
@@ -128,7 +128,7 @@ class StatisticalFeatureLargeFileGenerator:
             else:
                 continue
         # Data error
-        return None
+        return [0]*3
 
 if __name__ == '__main__':
     merge_data_file = constant.get_train_merge_file()
@@ -136,13 +136,16 @@ if __name__ == '__main__':
     feature_gen = StatisticalFeatureLargeFileGenerator(
         merge_file_name = merge_data_file,
         page_view_file_name = page_view_file,
-        merge_file_nrows=None,
-        page_view_nrows=None
+        merge_file_nrows=100000,
+        page_view_nrows=100000,
+        merge_data_chunk_size=100000,
+        page_view_chunk_size=100000
     )
     doc_id = 778157
     user_id = '79a85fa78311b9'
     ad_id = 125211
 
     print(feature_gen.get_doc_feature_from_doc_id(doc_id))
-    print(feature_gen.get_user_id_feature(user_id))
+    print(feature_gen.get_ad_feature_from_ad_id(ad_id))
+    print(feature_gen.get_doc_feature_from_doc_id(doc_id))
     print(feature_gen.get_ad_feature_from_ad_id(ad_id))

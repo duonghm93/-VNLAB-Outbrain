@@ -1,1 +1,2 @@
 from statistical_feature.document_statistical_feature import StatisticalFeatureGenerator
+from statistical_feature.document_statistical_feature_for_large_file import StatisticalFeatureLargeFileGenerator
