@@ -1,5 +1,7 @@
 import constant
 import pandas as pd
+import time
+
 
 class StatisticalFeatureLargeFileGenerator:
     def __init__(self, merge_file_name, page_view_file_name, merge_data_chunk_size=10000, page_view_chunk_size=10000, merge_file_nrows=None, page_view_nrows=None):
@@ -81,13 +83,13 @@ class StatisticalFeatureLargeFileGenerator:
         return self.__cache__feature__[__field__name__][__id__]
 
     def get_doc_id_feature(self, doc_id):
-        return self.__get__feature__(doc_id, constant.DOCUMENT_ID_COLUMN_NAME, check_in_page_view=True)
+        return self.__get__feature__(doc_id, constant.DOCUMENT_ID_COLUMN_NAME, check_in_page_view=False)
 
     def get_doc_source_id_feature(self, source_id):
-        return self.__get__feature__(source_id, constant.DOCUMENT_SOURCE_ID_COLUMN_NAME, check_in_page_view=True)
+        return self.__get__feature__(source_id, constant.DOCUMENT_SOURCE_ID_COLUMN_NAME, check_in_page_view=False)
 
     def get_doc_publisher_id_feature(self, publisher_id):
-        return self.__get__feature__(publisher_id, constant.DOCUMENT_PUBLISHER_ID_COLUMN_NAME, check_in_page_view=True)
+        return self.__get__feature__(publisher_id, constant.DOCUMENT_PUBLISHER_ID_COLUMN_NAME, check_in_page_view=False)
 
     def get_user_id_feature(self, user_id):
         return self.__get__feature__(user_id, constant.USER_ID_COLUMN_NAME, check_in_page_view=True)
@@ -138,14 +140,22 @@ if __name__ == '__main__':
         page_view_file_name = page_view_file,
         merge_file_nrows=100000,
         page_view_nrows=100000,
-        merge_data_chunk_size=100000,
-        page_view_chunk_size=100000
+        merge_data_chunk_size=10000,
+        page_view_chunk_size=10000
     )
     doc_id = 778157
     user_id = '79a85fa78311b9'
     ad_id = 125211
 
+    start_time = time.time()
     print(feature_gen.get_doc_feature_from_doc_id(doc_id))
+    print('finish:',time.time()-start_time)
+    start_time = time.time()
     print(feature_gen.get_ad_feature_from_ad_id(ad_id))
+    print('finish:', time.time() - start_time)
+    start_time = time.time()
     print(feature_gen.get_doc_feature_from_doc_id(doc_id))
+    print('finish:', time.time() - start_time)
+    start_time = time.time()
     print(feature_gen.get_ad_feature_from_ad_id(ad_id))
+    print('finish:', time.time() - start_time)

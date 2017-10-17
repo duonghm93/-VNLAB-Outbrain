@@ -67,12 +67,12 @@ if __name__ == '__main__':
 
     processes = []
     for i in range(constant.NUMBER_OF_PROCESSES):
-       process = Process(target=process_generate_train_data, args=(queue_job, feature_generator, ))
-       process.start()
-       processes.append(process)
+        process = Process(target=process_generate_train_data, args=(queue_job, feature_generator, ))
+        process.start()
+        processes.append(process)
 
     for process in processes:
-       process.join()
+        process.join()
 
     # === Train Linear Regression Model ===
     X = []
